@@ -1,0 +1,45 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.columns {
+    background: $light-grey;
+    padding: $spacing-m 0;
+
+    @include media-down(md) {
+        padding-bottom: $spacing-xs;
+    }
+
+    .row {
+        justify-content: center;
+    }
+
+    .col-12 {
+        @include media-down(md) {
+            margin-bottom: $spacing-m;
+        }
+
+        @include media-down(sm) {
+            margin-bottom: $spacing-s;
+        }
+    }
+
+    .title {
+        color: $dark-blue;
+        font-weight: bold;
+        font-size: pxrem(20);
+        border-bottom: 1px solid #707070;
+        padding: 0 $spacing-s $spacing-xs;
+    }
+
+    strong {
+        font-weight: 600;
+    }
+}
+
+.content._title + .columns {
+    margin-top: -#{$spacing-m};
+
+    @include media-down(sm) {
+        margin-top: -#{$spacing-s};
+    }
+}

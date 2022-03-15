@@ -1,0 +1,248 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+    background: $white;
+
+    &._sticky {
+
+        .header-main {
+            padding: 6px 0;
+        }
+
+        .header-search {
+            input {
+                height: 40px;
+            }
+        }
+
+        .header-btn{
+            display: block;
+
+            .btn {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+
+        img {
+            max-width: auto;
+            height: auto;
+        }
+    }
+
+    .header-btn._mobile {
+        display: none;
+
+        @include media-down(xs) {
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            text-transform: none;
+
+           a {
+            font-size: 12px;
+            text-transform: none; 
+           }
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+        height: 7px;
+        width: 100%;
+        background-image: url(../assets/img/ui/colored-line.jpg);
+        background-position: left;
+        background-size: contain;
+        background-repeat: repeat-x;
+
+        @include media-down(md) {
+            bottom: 0 !important;
+        }
+
+        @include media-down(sm) {
+            bottom: -4px  !important;
+        }
+        
+        @include media-between(sm, md) {
+            bottom: -7px  !important;
+        }
+    }
+}
+
+.header-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px 0;
+    transition: all .3s $smooth;
+
+    @include media-down(sm) {
+        padding: 18px 0;
+    }
+
+    @include media-down(xs) {
+        align-items: center;
+    }
+
+    .header-logo {
+
+        a {
+            display: inline-block;
+        }
+
+        img {
+            width: 160px;
+
+            @include media-down(sm) {
+                width: 94px;
+            }
+        }
+    }
+
+    .header-user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .header-btn {
+            @include media-down(xs) {
+                display: none;
+            }
+        }
+    }
+
+    .header-cta {
+        margin-right: 20px;
+
+        @include media-down(sm) {
+            display: none;
+        }
+
+        a {
+            font-size: pxrem(13);
+            color: $black;
+        }
+    }
+
+    .header-search{
+        position: relative;
+        margin-right: 20px;
+        
+        @include media-down(sm) {
+            display: none;
+        }
+
+        input {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            font-size: pxrem(14);
+            line-height: 1;
+            color: #495057;
+            height: 50px;
+            width: 190px;
+            padding: 0 10px;
+            transition: height .3s $smooth;
+        }
+
+        .btn {
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform:translateY(-50%);
+            transition: none;
+            background: white;
+            
+            .ico {
+                width: 26px;
+                height: 26px;
+                color: $dark-grey;
+            }
+        }
+    }
+
+    .header-btn {
+        .btn {
+            font-weight: 400;
+        }
+    }
+}
+
+.header-nav {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 2px;
+        background: $grey;
+
+        @include media-down(sm) {
+            display: none;
+        }
+    }
+}
+
+.header-toggle {
+    margin-left: 25px;
+    display: none;
+
+    @include media-down(sm) {
+        display: block;
+    }
+
+    @include media-down(xs) {
+        margin: 0;
+    }
+}
+
+.nav-toggler {
+    position: relative;
+
+    @include media-down(sm) {
+        display: block;
+    }
+
+    .line{
+        width: 30px;
+        height: 3px;
+        background-color: $black;
+        display: block;
+        margin: 6px auto;
+        transition: all 0.3s ease-in-out;
+      }
+
+    &.active {
+
+        .line {
+            margin: 10px auto;
+        }
+
+        .line:nth-child(2){
+            opacity: 0;
+        }
+
+        .line:nth-child(1) {
+            transform: translateY(13px) rotate(45deg);
+        }
+
+        .line:nth-child(3) {
+            transform: translateY(-13px) rotate(-45deg);
+        }
+    }
+}

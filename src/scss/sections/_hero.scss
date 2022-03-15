@@ -1,0 +1,62 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.hero {
+    
+    .img._wide {
+        
+        picture {
+            padding-bottom: 34%;
+        }
+    }
+
+    .swiper-slide {
+        @include media-down(md) {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .box {
+            position: absolute;
+            z-index: 1;
+            top: 100px;
+            left: 100px;
+            color: $white;
+    
+            @include media-down(md) {
+                position: static;
+                order: 2;
+                background: black;
+                padding: $spacing-s;
+                width: 100vw;
+            }
+        }
+    
+        .box-title {
+            margin-bottom: $spacing-s;
+    
+            .h1,
+            .h2 {
+                font-size: pxrem(47);
+                line-height: 1.2;
+                font-weight: 500;
+    
+                @include media-down(md) {
+                    font-size: pxrem(30);
+                }
+            }
+        }
+    
+        .box-text {
+            font-size: pxrem(18);
+            font-weight: 500;
+            margin-bottom: $spacing-s;
+        }
+    
+        .img {
+            @include media-down(md) {
+                order: 1;
+            }
+        }
+    }
+}

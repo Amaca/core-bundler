@@ -1,0 +1,155 @@
+@import "../../../scss/core/mixins";
+@import "../../../scss/core/variables";
+@import '../../../scss/grid/breakpoints';
+
+.accordion__filters {
+    margin-bottom: $spacing-m;
+
+    select {
+        padding: 8px 50px 8px 20px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 2px;
+        outline: none;
+        position: relative;
+        cursor: pointer;
+
+        @include media-down(xs) {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+.accordion__item {
+    position: relative;
+    z-index: 1;
+    //transition: auto .6s $smooth;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+
+    .accordion__item-header {
+        cursor: pointer; 
+        position: relative;
+        z-index: 1;
+        padding: $spacing-s $spacing-xs;
+        
+        .circle {
+            width: 44px;
+            height: 44px;
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: calc(50% - 22px);
+            transition: transform .6s ease-in-out;
+            transform-origin: center center;
+            background: $dark-blue;
+            border-radius: 100%;
+
+            @include media-down(md) {
+                width: 30px;
+                height: 30px;
+                top: calc(50% - 15px);
+            }
+
+            &:after,
+            &:before {
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 4px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: $white;
+                border-radius: 10px;
+
+                @include media-down(md) {
+                    width: 12px;
+                    height: 2px;
+                }
+            }
+
+            &:after {
+                transform: rotate(-90deg);
+                top: calc(50% - 2px);
+                left: calc(50% - 12px);
+
+                
+                @include media-down(md) {
+                    top: calc(50% - 1px);
+                    left: calc(50% - 6px);
+                }
+            }
+        }
+
+        &.active {
+            .circle {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .accordion__title {
+        font-size: pxrem(32);
+        color: $dark-blue;
+        padding-right: 60px;
+
+        @include media-down(md) {
+            font-size: pxrem(24);
+        }
+    }
+
+    .accordion__item-content {
+        overflow: hidden;
+        display: none;
+        padding-right: 60px;
+
+        @include media-down(sm) {
+            padding-right: 0;
+        }
+
+        .box {
+            margin-top: $spacing-s;
+            margin-bottom: $spacing-m;
+
+            a {
+                color: $black;
+                border: 0;
+                font-size: pxrem(16);
+                display: block;
+            }
+
+            strong + p {
+                margin-bottom: 0;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    transition: background-color .3s ease-in-out;
+                    padding: $spacing-s;
+
+                    @include media-down(sm) {
+                        padding: $spacing-xs;
+                    }
+
+                    &:hover {
+                        background-color: #E7F5FB;
+                    }
+
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.accordion__item + .accordion__item {
+    border-top: 0;
+}

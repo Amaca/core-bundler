@@ -1,0 +1,126 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.styleguide {
+    margin: $spacing-l 0;
+}
+
+.styleguide-wrapper {
+    margin: $spacing-l 0;
+}
+
+.styleguide-cat {
+    position: relative;
+    padding-bottom: $spacing-m;
+    margin-bottom: $spacing-l;
+
+    &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        height: 2px;
+        width: 100%;
+        background: $dark;
+    }
+
+    .h5 {
+        text-transform: uppercase;
+    }
+}
+
+.styleguide-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: $spacing-l;
+
+    @include media-down(md) {
+        margin-bottom: $spacing-m;
+    }
+}
+
+.styleguide-details {
+    flex: 0 0 20%;
+    max-width: 20%;
+    font-size: pxrem(16);
+
+    @include media-down(md) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: $spacing-m;
+    }
+
+    .h6 {
+        color: $magenta;
+        margin-bottom: $spacing-s;
+    }
+
+    ul {
+       
+        li {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: $spacing-xs;
+        }
+
+        strong,
+        span {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}
+
+.styleguide-example {
+    flex: 0 0 80%;
+    max-width: 80%;
+
+    @include media-down(md) {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.styleguide-colors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .styleguide-colors-i {
+        flex: 0 0 25%;
+        max-width: 25%;
+
+        @include media-down(sm) {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+
+        @include media-down(xs) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .styleguide-colors-box {
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
+        position: relative;
+
+        @include media-down(sm) {
+            padding-top: 50%;
+        }
+    }
+
+    p {
+        position: absolute;
+        display: inline-block;
+        bottom: 10px;
+        right: 10px;
+        color: white;
+    }
+}

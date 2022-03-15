@@ -1,0 +1,449 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.contact-form {
+	background: #ececec;
+	padding: $spacing-l 0;
+	margin: 0;
+
+	.box-title {
+		text-align: center;
+		font-size: pxrem(38);
+		line-height: pxrem(40);
+		margin-bottom: $spacing-m;
+
+		@include media-down(sm) {
+			font-size: pxrem(28);
+			line-height: pxrem(34);
+			margin-bottom: $spacing-s;
+		}
+	}
+
+	.btn {
+		cursor: pointer;
+	}
+}
+
+//Hubspot Form
+.hs-form-required {
+	display: none;
+}
+
+.submitted-message {
+	font-size: 20px;
+	color: #1e83c1;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.hbspt-form {
+	background: transparent;
+}
+
+.hbspt-form {
+
+	* {
+		font-family: 'Roboto', sans-serif !important;
+	}
+
+	fieldset {
+		max-width: initial !important;
+	}
+
+	input {
+		font-family: 'Roboto', sans-serif !important;
+
+		&::placeholder {
+			font-family: 'Roboto', sans-serif !important;
+		}
+	}
+
+	.field {
+		margin: 5px 0;
+
+		label {
+			display: block;
+			margin-bottom: 0;
+
+			span {
+				font-size: 12px;
+			}
+		}
+	}
+
+	.hs-richtext {
+		strong {
+			color: #fff;
+		}
+
+		p {
+			color: #797979;
+		}
+
+		a {
+			color: #fff;
+		}
+	}
+
+	.actions {
+		input[type="submit"] {
+			color: #fff;
+		}
+	}
+
+	.input {
+		font-family: 'Roboto', sans-serif !important;
+
+		@media (max-width: 767px) {
+			margin-right: 0 !important;
+		}
+	}
+
+	.hs-input {
+		@media (max-width: 767px) {
+			width: 100% !important;
+		}
+	}
+
+	.hs_company {
+		.hs-input {
+			width: 100% !important;
+		}
+	}
+
+	.hs_richiesta_form {
+		font-family: 'Roboto', sans-serif !important;
+
+		&::placeholder {
+			font-family: 'Roboto', sans-serif !important;
+		}
+	}
+
+}
+
+.hbspt-form .form-columns-2,
+.hbspt-form .form-columns-1 {
+	width: 100%;
+	max-width: 100%;
+}
+
+.hs_submit .cta-magenta {
+	position: relative;
+	margin: 0 auto;
+	display: block;
+}
+
+.hs-form .hs-richtext,
+.hs-form .hs-richtext p,
+.hs-form .hs-richtext a,
+.hs-form .hs-richtext strong {
+	font-size: 12px !important;
+	line-height: 18px !important;
+}
+
+.hs-form .hs-richtext a:hover,
+.hs-form .hs-richtext a:focus {
+	text-decoration: underline;
+}
+
+.hbspt-form form {
+	padding: 0px;
+}
+
+.hbspt-form form input {
+	border-radius: 4px;
+	border: 2px solid #ddd;
+	font-size: 14px;
+	padding: 2px 10px;
+	color: #868686;
+
+	&.hs-input {
+		width: 100%;
+
+		
+	}
+
+	&.error {
+		border: 2px solid red;
+	}
+}
+
+.hbspt-form form select {
+	width: 100% !important;
+	border-radius: 4px;
+	border: 2px solid #ddd;
+	font-size: 14px;
+	padding: 2px 10px;
+	color: #868686;
+}
+
+.hbspt-form form textarea {
+	width: 100% !important;
+	border-radius: 4px;
+	border: 2px solid #ddd;
+	font-size: 14px;
+	padding: 2px 10px;
+	color: #868686;
+}
+
+#contatto-new-3 .hbspt-form .actions input[type='submit'] {
+	background: #ec7a46;
+    border-color: #e27b4b;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 30px 100px;
+    border-radius: 8px;
+    margin-top: 20px;
+	cursor: pointer;
+}
+
+.form-fixed-alt{
+	margin-top: 38px;
+    
+	.form-fixed-right {
+		border-radius: 10px !important;
+	}
+}
+
+/*------------------------------------------------
+	Form Fixed Contact
+------------------------------------------------*/
+.form-fixed-contact {
+	background-color: #e4e4e4;
+	position: absolute;
+	margin-top: 50px;
+	padding: 20px;
+	border-radius: 20px;
+
+	@media (max-width: 1024px) {
+		margin-top: 100px;
+	}
+
+	@media (max-width: 768px) {
+		position: relative;
+		margin-top: 0;
+		right: 0;
+		top: 0;
+	}
+
+	@media (max-width: 767px) {
+		border-radius: 0;
+	}
+
+	textarea {
+		width: 100%;
+		border-radius: 4px;
+		border: 2px solid #ddd;
+		font-size: 14px;
+		padding: 2px 10px;
+
+		&.error {
+			border: 2px solid red;
+		}
+	}
+
+	.LayoutBuilder {
+		margin-top: 0 !important;
+	}
+
+	.html {
+
+		h4 {
+			color: #000;
+			font-weight: 700;
+			font-size: 18px;
+			padding-left: 0;
+		}
+
+		h5 {
+			font-size: 12px;
+			margin-bottom: 10px;
+		}
+	}
+
+	.checkboxnew {
+
+		label {
+			color: #797979;
+
+			a {
+				color: #797979 !important;
+
+				&:hover,
+				&:focus {
+					color: #797979 !important;
+				}
+			}
+		}
+	}
+
+	.hbspt-form {
+
+		.hs-richtext,
+		p,
+		a,
+		strong {
+			color: #797979;
+		}
+
+		.hs_submit {
+
+			.actions {
+				text-align: center;
+
+				input[type='submit'] {
+
+					&:hover,
+					&:focus {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	.inputs-list {
+
+		span {
+			color: #797979;
+		}
+	}
+}
+
+
+#form-fixed-right .hbspt-form .hs-richtext {
+	color: #fff;
+}
+
+.myform #contatto-new-2 .hbspt-form .hs-richtext {
+	padding: 10px 0;
+	color: #212529;
+
+	strong {
+		color: #212529;
+	}
+
+	a {
+		color: #212529;
+	}
+}
+
+.myform #contatto-new-2 .hbspt-form .hs_prv_mktg {
+
+	.input {
+
+		input {
+			top: 1px;
+		}
+
+		span {
+			color: #212529;
+		}
+	}
+}
+
+.myform #contatto-new-2 .hbspt-form .hs_prv_terzi {
+
+	.input {
+
+		input {
+			top: 1px;
+		}
+
+		span {
+			color: #212529;
+		}
+	}
+}
+
+/*--------------------------------------------------
+Form FIXED
+--------------------------------------------------*/
+.form-fixed-right {
+	position: static;
+	background-color: #ececec;
+	border-radius: 0;
+	padding: 20px;
+	z-index: 100;
+	top: -2px;
+	width: 100%;
+	right: 0;
+
+    a {
+        color: $dark-blue !important;
+    }
+}
+
+.form-fixed-right .h4 {
+	color: #000;
+	font-weight: 400;
+	font-size: 24px;
+}
+
+.form-fixed-right .hbspt-form .field label {
+	display: block;
+	margin-top: 10px;
+	font-size: 12px;
+}
+
+.form-fixed-right .hbspt-form form input {
+	width: 100% !important;
+}
+
+.form-fixed-right .hbspt-form form input[type=checkbox] {
+	width: auto !important;
+	position: relative;
+	top: 0;
+}
+
+.form-fixed-right .hbspt-form .hs-richtext {
+	color: #000 !important;
+}
+
+.form-fixed-right .inputs-list span {
+	color: #000;
+}
+
+#intro-prodotto ul li {
+	position: relative;
+	padding: 0 0 10px;
+}
+
+.hbspt-form .actions input[type="submit"] {
+	position: relative;
+	margin-top: 10px;
+	display: block;
+	padding: 10px 20px;
+	font-size: 16px;
+	background: #0091d3;
+	border-color: #0091d3;
+	border-radius: .25rem;
+	color: #fff;
+	width: auto !important;
+	margin: 0 auto;
+	text-transform: uppercase;
+}
+
+.hs-error-msg {
+	color: red;
+}
+
+.hs-error-msg li {
+	padding: 0;
+}
+
+.hbspt-form select.error {
+	border: 2px solid red !important;
+}
+
+.hs_error_rollup label {
+	color: red;
+	font-size: 14px;
+}
+
+.hs-main-font-element {
+    color: $black !important;
+    strong {
+        color: $black !important;
+    }
+}

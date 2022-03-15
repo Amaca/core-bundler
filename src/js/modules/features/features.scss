@@ -1,0 +1,118 @@
+@import "../../../scss/core/mixins";
+@import "../../../scss/core/variables";
+@import '../../../scss/grid/breakpoints';
+
+.features {
+
+    .box._heading-center {
+        margin-bottom: $spacing-l;
+
+        @include media-down(md) {
+            margin-bottom: $spacing-m;
+        }
+    }
+
+    &._alt {
+        @include media-down(sm) {
+            .col-md-6 {
+                margin-bottom: $spacing-s;
+            }
+        }
+    }
+}
+
+.card._features {
+    position: relative;
+    height: 100%;
+    padding-bottom: $spacing-m;
+
+    @include media-down(md) {
+        margin-bottom: $spacing-m;
+        padding-bottom: $spacing-s;
+    }
+
+    .h2,
+    .h3 {
+        color: $dark-blue;
+        font-size: pxrem(34);
+        line-height: 1.2;
+        font-weight: 300;
+
+        @include media-down(sm) {
+            font-size: pxrem(22);
+        }
+    }
+    
+    p {
+        font-weight: 300;
+        font-size: pxrem(16);
+    }
+
+    .box-title {
+        margin-bottom: $spacing-xs;
+    }
+
+    .box-text {
+        padding-bottom: $spacing-xxs;
+    }
+
+    .box-img {
+        margin-bottom: $spacing-s;
+    }
+
+    .box-icon {
+        position: absolute;
+        top: -#{$spacing-s};
+        left: $spacing-s;
+        line-height: 0;
+
+        @include media-down(sm) {
+            top: 12px;
+
+            img {
+                width: 40px;
+            }
+        }
+    }
+
+    .box-icon + .box-title {
+        margin-top: $spacing-m;
+
+        @include media-down(md) {
+            margin-top: $spacing-s;
+
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 100%;
+        background-image: url(../../../assets/img/ui/colored-line-s.jpg);
+        background-size: 100% 4px;
+        background-repeat: repeat-x;
+
+        @include media-down(md) {
+            bottom: $spacing-m;
+        }
+    }
+
+    &._features-alt {
+        background: #F6F6F6;
+        padding: $spacing-m $spacing-s $spacing-m $spacing-s;
+        margin-bottom: 0;
+
+        &:after {
+            bottom: 0;
+        }
+
+        .box-text,
+        .box-text p {
+            font-weight: 400;
+            font-size: pxrem(18);
+        }
+    }
+}

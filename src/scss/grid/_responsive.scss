@@ -1,0 +1,83 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+.container {
+	@include make-container();
+	@include make-container-max-widths();
+}
+
+.container-fluid {
+	@include make-container();
+	@include make-container-fluid-max-widths();
+}
+
+.row {
+	@include make-row();
+	min-width: 100%;
+}
+
+.container {
+	position: relative;
+}
+
+@include make-grid-columns();
+
+@include media-between(md, lg) {
+	@for $i from 1 through 20 {
+		.o-md-#{$i} {
+			order: $i;
+		}
+	}
+}
+
+@include media-between(sm, md) {
+	@for $i from 1 through 20 {
+		.o-sm-#{$i} {
+			order: $i;
+		}
+	}
+}
+
+@include media-down(sm) {
+	@for $i from 1 through 20 {
+		.o-#{$i} {
+			order: $i;
+		}
+	}
+}
+
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-down($breakpoint) {
+		.hidden-#{$breakpoint}-down {
+			display: none !important;
+		}
+	}
+
+	@include media-up($breakpoint) {
+		.hidden-#{$breakpoint}-up {
+			display: none !important;
+		}
+	}
+}
+
+@mixin tablet-portrait {
+    @media screen and (orientation: portrait) and (max-device-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin tablet-landscape {
+    @media screen and (orientation: landscape) and (max-device-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin phone-landscape {
+    @media screen and (orientation: landscape) and (max-device-width: 820px) {
+        @content;
+    }
+}

@@ -1,0 +1,81 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.swiper {
+    position: relative;
+}
+
+$sw-buttons-height: 70px;
+$sw-progress-height: 6px;
+
+.swiper-pagination {
+    display: flex;
+    bottom: 0 !important;
+    position: static;
+    height: $sw-buttons-height;
+}
+
+.swiper-pagination-bullet {
+	flex: 1 0 auto;
+	border-radius: 0;
+	position: relative;
+	overflow: hidden;
+    height: $sw-buttons-height;
+    margin: 0 !important;
+    background: #e6e6e6;
+    color: #707070;
+    opacity: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: $sw-progress-height;
+	
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+        height: $sw-progress-height;
+		right: 0;
+		bottom: 0;
+		left: 0;
+        z-index: 2;
+	}
+
+    &:after {
+        content: "";
+		display: block;
+		position: absolute;
+        height: $sw-progress-height;
+		right: 0;
+		bottom: 0;
+		left: 0;
+        background: #94a5c3;
+        z-index: 1;
+    }
+}
+
+.swiper-pagination-bullet-active {
+	background: $white;
+    color: $black;
+	
+	&::before {
+		background-color: #144391;
+		animation: slide-progress 5s cubic-bezier(.3,0,.3,1) forwards;
+		
+		.swiper-paused & {
+			// opacity: 0;
+			animation-play-state: paused;
+		}
+	}
+}
+
+@keyframes slide-progress {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}

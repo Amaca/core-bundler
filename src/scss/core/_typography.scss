@@ -1,0 +1,120 @@
+@import "mixins";
+@import "variables";
+
+//import fonts
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://use.typekit.net/xgp5dft.css");*/
+
+//typo
+body,
+html {
+    @include font($style:regular);
+    font-size: $font-main;
+    line-height: 1.2;
+
+    @include media-down(sm) {
+        font-size: $font-18;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    @include font($style:title);
+    padding: 0;
+    margin: 0;
+   
+}
+
+.h1 {
+    font-size: pxrem(72);
+    line-height: pxrem(80);
+
+    @include media-down(md) {
+        font-size: pxrem(48);
+        line-height: pxrem(50);
+    }
+
+    &._hero {
+        font-size: pxrem(120);
+        line-height: pxrem(120);
+
+        @include media-down(md) {
+            font-size: pxrem(58);
+            line-height: pxrem(60);
+        }
+    }
+}
+
+.h2 {
+    font-size: pxrem(60);
+    line-height: pxrem(72);
+
+    @include media-down(md) {
+        font-size: pxrem(40);
+        line-height: pxrem(48);
+    }
+}
+
+.h3 {
+    font-size: pxrem(48);
+    line-height: pxrem(50);
+
+    @include media-down(md) {
+        font-size: pxrem(30);
+        line-height: pxrem(40);
+    }
+}
+
+.h4 {
+    font-size: pxrem(36);
+    line-height: pxrem(48);
+
+    @include media-down(md) {
+        font-size: pxrem(24);
+        line-height: pxrem(36);
+    }
+}
+
+.h5 {
+    font-size: pxrem(24);
+    line-height: pxrem(30);
+
+    @include media-down(md) {
+        font-size: pxrem(20);
+        line-height: pxrem(24);
+    }
+}
+
+.h6 {
+    font-size: pxrem(18);
+    line-height: pxrem(30);
+
+    @include media-down(md) {
+        font-size: pxrem(16);
+        line-height: pxrem(20);
+    }
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+strong {
+    font-weight: 500;
+}
+
+.btn {
+    @include font($style:regular);
+}

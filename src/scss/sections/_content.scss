@@ -1,0 +1,21 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.content {
+
+    &._topline {
+        padding-top: $spacing-xl;
+
+        @include media-down(sm) {
+            padding-top: $spacing-m;
+        }
+    }
+}
+
+.content._topline + .content._title {
+    margin-top: -#{$spacing-m};
+
+    @include media-down(sm) {
+        margin-top: -#{$spacing-xs};
+    }
+}

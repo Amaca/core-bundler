@@ -1,0 +1,331 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.event-filters {
+    margin-top: -#{$spacing-m};
+    margin-bottom: $spacing-s;
+
+    .event-filters-wrapper {
+        display: none;
+        margin-top: $spacing-s;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .wrap-cerca-eventi {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .input-group {
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: $spacing-xs;
+        }
+    }
+
+    .btn._pink-alt {
+        @include media-down(sm) {
+            width: 100%;
+            margin-top: $spacing-s;
+        }
+    }
+
+    .wrap-cerca-eventi {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 50px;
+
+        &.show {
+            display: flex;
+        }
+
+        &:first-child {
+            margin-bottom: 20px;
+
+            @media (max-width:767px) {
+                margin-bottom: 0;
+            }
+        }
+
+        .reset-all {
+            width: 100%;
+            padding: 10px 0;
+
+            a {
+                color: #3fa2f7;
+            }
+        }
+
+        .col-cerca-evento {
+            width: calc(14.2% - 20px);
+
+
+            @media (max-width:767px) {
+                width: calc(50% - 10px);
+            }
+
+            .btn-azure {
+                display: block;
+                width: 100%;
+            }
+
+            .btn-search {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                padding: 0 12px;
+                background: #0fa2d7;
+                height: 33px;
+                
+                //ios fix
+                @supports (-webkit-touch-callout: none) {
+                    bottom: 3px;
+                    right: -1px;
+                }
+                
+                .ico {
+                    color: $white;
+                    fill: $white;
+                }
+            }
+
+            .input-group {
+                position: relative;
+
+                @media (max-width:767px) {
+                    margin-bottom: 20px;
+                }
+
+                label {
+                    font-weight: 600;
+                    font-size: 20px;
+                    display: block;
+
+                    @media (max-width:1440px) {
+                        font-size: 24px;
+                    }
+
+                    @media (max-width:1024px) {
+                        font-size: 18px;
+                    }
+                }
+
+                input, select {
+                    border: 1px solid #244868;
+                    width: 100%;
+                    border-radius: 4px;
+                    padding: 5px;
+                    font-size: 18px;
+                    line-height: 18px;
+                    color: $dark;
+
+                    @media (max-width:767px) {
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.event-list {
+
+    .row-event {
+        padding: $spacing-m 0;
+        position: relative;
+        z-index: 1;
+        
+        @include media-down(xs) {
+            padding: $spacing-s 0;
+       }
+
+        &:hover {
+            background: #f5f5f5;
+        }
+
+        a {
+            color: $dark;
+
+            &:hover {
+                color: $dark-blue;
+            }
+        }
+    }
+}
+
+.card._event {
+
+	.h3 {
+		font-size: pxrem(32);
+		color: $black;
+	}
+
+	.card-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		// margin: 0 -#{$spacing-m};
+
+		@include media-down(xs) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	.card-primary {
+		padding: 0 $spacing-m;
+
+		@include media-down(xs) {
+			padding: 0;
+			margin-bottom: $spacing-s;
+		}
+	}
+
+	.card-secondary {
+		// padding: 0 $spacing-m;
+	}
+
+	.box {
+		padding-bottom: $spacing-s;
+		border-bottom: 3px solid #DBDBDB;
+	}
+
+	.box-info {
+		font-size: pxrem(16);
+
+		@include media-down(sm) {
+			margin-bottom: $spacing-xs;
+		}
+	}
+
+	.box-text {
+		margin-bottom: $spacing-xs;
+	}
+
+	.box-eyelet {
+		a {
+			text-transform: none;
+		}
+	}
+
+	.ico {
+		position: relative;
+		top: 4px;
+		fill: $blue;
+		width: 20px;
+		height: 20px;
+		margin-right: $spacing-s;
+	}
+
+	.card-date {
+		position: relative;
+		height: 150px;
+		width: 150px;
+		color: $white;
+		text-align: center;
+		display: block;
+
+		@include media-down(sm) {
+			width: 90px;
+			height: 90px;
+		}
+
+		&._yellow {
+			&:after {
+				background: #f09624;
+			}
+		}
+
+		&.azzurro {
+			&:after {
+				background: #0fa2d7;
+			}
+		}
+
+		&.blu {
+			&:after {
+				background: #0b68aa;
+			}
+		}
+
+		&.viola {
+			&:after {
+				background: #6c4591;
+			}
+		}
+
+		&.magenta {
+			&:after {
+				background: #df096e;
+			}
+		}
+
+		&.rosso {
+			&:after {
+				background: #e24d4f;
+			}
+		}
+
+		&.giallo {
+			&:after {
+				background: #f09624;
+			}
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			background: #0fa2d7;
+			width: 100%;
+			height: 100%;
+			border-radius: 100%;
+			top: 0;
+			left: 0;
+		}
+
+		&:hover {
+			color: $dark;
+		}
+
+		.date-number {
+			display: block;
+			font-size: 50px;
+			line-height: 50px;
+			padding-top: 27px;
+			font-weight: 600;
+
+			@include media-down(sm) {
+				padding-top: 6px;
+				font-size: 38px;
+				line-height: 40px;
+			}
+		}
+
+		.date-month {
+			display: block;
+			font-size: 16px;
+			line-height: 26px;
+
+			@include media-down(sm) {
+				line-height: 16px;
+			}
+		}
+
+		.date-year {
+			display: block;
+			font-size: 16px;
+			line-height: 26px;
+
+			@include media-down(sm) {
+				line-height: 16px;
+			}
+		}
+	}
+}

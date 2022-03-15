@@ -1,0 +1,56 @@
+@mixin aspect-grid($w: 4, $h: 3) {
+    display: grid;
+
+    &:before,
+    &>img,
+    &>video,
+    &>* {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        padding-top: calc(#{$h} / #{$w} * 100%);
+    }
+
+    /*
+	&::before {
+		content: url("data:image/svg+xml,%3Csvg viewBox='0 0 #{$w} #{$h}' xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E");
+	}
+	*/
+}
+
+@mixin aspect-clip($w: 4, $h: 3, $parallax: 0) {
+    $paddingTop: 100% / $w * $h;
+    position: relative;
+    width: 100%;
+    padding-top: calc(#{$paddingTop} - #{$paddingTop} * #{$parallax});
+    display: flex;
+    // overflow: hidden;
+
+    img,
+    video,
+    canvas {
+        position: absolute;
+        /*
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        */
+        object-fit: cover;
+        height: 100%;
+        top: 0;
+
+        @include xs-down {
+            max-width: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+        }
+    }
+}

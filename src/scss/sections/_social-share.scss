@@ -1,0 +1,56 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.social-share {
+    text-align: center;
+
+    .box._heading-center {
+        margin-bottom: $spacing-s;
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .social-item {
+            display: block;
+            position: relative;
+            line-height: 0;
+            transition: all .3s $smooth;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 38px;
+                height: 38px;
+                background: #cccccc;
+                border-radius: 100%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                transition: all .3s $smooth;
+            }
+
+            &:hover {
+
+                .ico {
+                    fill: $white;
+                }
+
+                &:after {
+                    background: $blue;
+                }
+            }
+
+            .ico {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}

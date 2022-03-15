@@ -1,0 +1,167 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.box {
+    
+    hr {
+        margin-top: $spacing-s;
+        margin-bottom: $spacing-s;
+        border: 0;
+        border-top: 1px solid #eee;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0 20px;
+        margin: 0;
+
+        li {
+            position: relative;
+            padding: 0 0 10px;
+
+            &:after {
+                content: '\2022';
+                color: $dark-blue;
+                font-weight: bold;
+                position: absolute;
+                top: -2px;
+                left: -19px;
+                font-size: 18px;
+                padding-right: 10px;
+            }
+        }
+    }
+    
+    .box-title {
+        font-size: pxrem(22);
+        font-weight: 400;
+    }
+    
+    .box-text {
+        font-size: pxrem(18);
+    }
+
+    .box-eyelet {
+        font-size: pxrem(15);
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .box-cta {
+        font-size: pxrem(16);
+
+        a {
+            display: inline-block;
+        }
+
+        .btn + .btn {
+            margin-left: $spacing-s;
+
+            @include media-down(xs) {
+                margin-left: 0;
+            }
+
+            @include phone-landscape {
+                margin-left: $spacing-s;
+            }
+        }
+    }
+
+    .box-bg {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+
+        @include media-down(xs) {
+            display: block;
+        }
+    }
+}
+
+.box._heading-center {
+    text-align: center;
+    padding: 0 $spacing-l;
+    margin: 0 auto;
+
+    @include media-down(sm) {
+        padding: 0 $spacing-s;
+    }
+
+    @include media-down(xs) {
+        padding: 0;
+    }
+
+    .h1 {
+        font-size: pxrem(40);
+        font-weight: 300;
+
+        @include media-down(sm) {
+            font-size: pxrem(32);
+            line-height: 1.4;
+        }
+    }
+
+    .h2 {
+        font-size: pxrem(32);
+        font-weight: 300;
+        text-align: center;
+
+        @include media-down(sm) {
+            font-size: pxrem(28);
+            line-height: 1.4;
+        }
+    }
+
+    .box-title + .box-text{
+        padding-top: $spacing-xxs;
+    }
+    
+    .box-title._blue {
+        
+        .h1,
+        .h2 {
+            color: $blue;
+            font-weight: 700;
+            font-size: pxrem(32);
+
+            @include media-down(sm) {
+                font-size: pxrem(26);
+            }
+        }
+
+        .h3 {
+            color: $blue;
+            font-size: pxrem(26);
+
+            @include media-down(sm) {
+                font-size: pxrem(22);
+            }
+        }
+    }
+}
+
+.box._cta-center {
+    text-align: center;
+    padding: $spacing-m 0;
+    margin: 0 auto;
+
+    @include media-down(sm) {
+        padding: $spacing-s 0;
+    }
+
+    @include media-down(xs) {
+        padding: 0;
+        
+        .btn {
+            display: block;
+        }
+    }
+}
+
+._heading-center + ._cta-center {
+    padding-top: $spacing-s;
+}

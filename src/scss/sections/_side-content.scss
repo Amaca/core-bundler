@@ -1,0 +1,90 @@
+@import "../core/mixins";
+@import "../core/variables";
+
+.side-content {
+
+    & > .container {
+        margin-top: -#{$spacing-l};
+
+        @include media-down(sm) {
+            margin-top: 0;
+        }
+    }
+
+    .breadcrumb {
+        border: 0;
+        padding-bottom: 0;
+    }
+
+    sidebar {
+        display: block;
+        margin-bottom: $spacing-l;
+    }
+
+    .side-inner {
+        margin-bottom: $spacing-m;
+    }
+
+    &._alt {
+
+        .h2 {
+            font-size: pxrem(22);
+        }
+
+        .h4 {
+            color: #e73b62;
+            font-weight: 700;
+        }
+
+        .h3 {
+            font-size: pxrem(22);
+        }
+
+        u {
+            display: block;
+            margin-top: $spacing-s;
+        }
+
+        .form-fixed-right {
+            border-radius: 15px;
+        }
+    }
+    
+    .h2 {
+        font-size: pxrem(32);
+        line-height: 1.2;
+        padding-bottom: 0;
+        margin-bottom: $spacing-s;
+        text-align: left;
+    }
+
+    .h4 {
+        font-size: pxrem(26);
+    }
+
+    p,
+    ul {
+        font-size: pxrem(15);
+        line-height: 1.6;
+    }
+
+    p {
+        margin-bottom: $spacing-xs;
+    }
+
+    article > .box {
+        margin-bottom: $spacing-s;
+    }
+
+    .features {
+        position: relative;
+        margin-left: -#{$spacing-s};
+        width: calc(100% + #{$spacing-m});
+        margin-bottom: $spacing-s;
+
+        @include media-down(sm) {
+            margin-left: -#{$spacing-xs};
+            width: calc(100% + #{$spacing-s});
+        }
+    }
+}

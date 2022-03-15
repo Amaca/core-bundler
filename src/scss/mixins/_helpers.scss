@@ -1,0 +1,19 @@
+@mixin clearfix {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+@mixin font($style: regular) {
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+
+    @if $style==regular {
+        font-family: 'Roboto', sans-serif;
+    }
+}
+
+@function pxrem($pixels) {
+    @return #{$pixels/$font-rem}rem;
+}
