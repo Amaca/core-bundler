@@ -1,5 +1,5 @@
 {
-  "author": "Massimo Carletti <mcarletti@gmail.com>",
+  "author": "Massimo Carletti <carletti.massimo@gmail.com>",
   "name": "core-bundler",
   "description": "Static site boilerplate based on webpack to lazy load .js, .html and assets on scroll to increase performances",
   "keywords": [

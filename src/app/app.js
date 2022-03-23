@@ -21,24 +21,3 @@ export default class App extends Page {
 window.onload = () => {
 	const app = new App();
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

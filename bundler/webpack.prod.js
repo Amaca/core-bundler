@@ -3,53 +3,84 @@ const { merge } = require('webpack-merge')
 const commonConfiguration = require('./webpack.common.js')
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const webpackReaddir = require('./webpack.readdir');
-const htmlFiles = webpackReaddir.getHtmlFiles();
 
-module.exports = merge(
-    commonConfiguration,
-    {
-        mode: 'production',
-        module:
-        {
-            rules:
-            [
-                // HTML
-                {
-                    test: /\.html$/,
-                    use: {
-                        loader: "html-loader",
+module.exports = (env) => {
+    
+    const prodModulesettings = {
+        rules:
+        [
+            // HTML
+            {
+                test: /\.html$/,
+                use: {
+                    loader: "html-loader",
+                    options: {
+                        minimize: false,
+                        sources: false
+                    }
+                }
+            },
+
+            // CSS
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCSSExtractPlugin.loader,
+                    { 
+                        loader: 'css-loader',
                         options: {
-                            minimize: false,
-                            sources: false
+                            url: false
                         }
                     }
-                },
-                //SCSS
-                {
-                    test: /\.scss$/,
-                    use: [
-                        MiniCSSExtractPlugin.loader,
-                        'css-loader',
-                        'sass-loader',
-                    ]
-                },
-            ]
-        },
-        plugins: htmlFiles.concat([
-            new CopyWebpackPlugin({
-                patterns: [
-                    { from: path.resolve(__dirname, '../src/assets'), to: '../assets' }
+                ],
+            },
+            
+            //SCSS
+            {
+                test: /\.scss$/,
+                use: [
+                    MiniCSSExtractPlugin.loader,
+                    { 
+                        loader: 'css-loader',
+                        options: {
+                            url: false
+                        }
+                    },
+                    'sass-loader',
                 ]
-            }),
-            new MiniCSSExtractPlugin({
-                filename: '../css/[name].css',
-            }),
-            new CleanWebpackPlugin()
-        ])
+            },
+        ]
     }
-)
+
+    const htmlFiles = webpackReaddir.getHtmlFiles({
+        pagesDirPath: '../src/',
+        fileNamePath: '../',
+        templatePath: '../src/',
+        minify: false
+    });
+
+    const prodPluginsSettings = [
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.resolve(__dirname, '../src/assets'), to: '../assets' }
+            ]
+        }),
+        new MiniCSSExtractPlugin({
+            filename: '../css/[name].css',
+        }),
+        new CleanWebpackPlugin()
+    ]
+
+    const prodConfiguration = {   
+        stats: 'errors-only',
+        mode: 'production',
+        module: prodModulesettings,
+        plugins: htmlFiles.concat(prodPluginsSettings)
+    }
+
+    return merge(commonConfiguration, prodConfiguration);
+} 

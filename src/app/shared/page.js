@@ -17,7 +17,8 @@ export default class Page {
 		this.page = page;
 		this.header = header;
 		this.isMobile = Dom.mobile;
-		this.nav = new Nav(nav);
+		if(nav)
+			this.nav = new Nav(nav);
 
 		this.addListeners();
 	}
