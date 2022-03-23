@@ -23,7 +23,6 @@ module.exports = (env) => {
                 use: {
                     loader: "html-loader",
                     options: {
-                        minimize: false,
                         sources: false
                     }
                 }
@@ -61,9 +60,8 @@ module.exports = (env) => {
     };
 
     const htmlFiles = webpackReaddir.getHtmlFiles({
-        pagesDirPath: '../src/',
-        fileNamePath: '',
-        templatePath: '../src/',
+        input: '../src/',
+        output: '',
         minify: false
     });
 
@@ -79,13 +77,11 @@ module.exports = (env) => {
         allowedHosts: 'all',
         hot: false,
         watchFiles: ['src/**'],
-        static:
-        {
+        static: {
             watch: true,
             directory: path.join(__dirname, '../src')
         },
-        client:
-        {
+        client: {
             logging: 'none',
             overlay: true,
             progress: false
