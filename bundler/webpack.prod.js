@@ -19,6 +19,7 @@ module.exports = (env) => {
                 use: {
                     loader: "html-loader",
                     options: {
+                        minimize: false,
                         sources: false
                     }
                 }
