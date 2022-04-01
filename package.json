@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "nunjucks": "^3.2.3",
-    "simple-nunjucks-loader": "^3.2.0"
+    "simple-nunjucks-loader": "^3.2.0",
+    "svg-sprite-html-webpack": "^2.4.0"
   }
 }

@@ -21,7 +21,8 @@
     }
 }
 
-.card._features {
+.card._features,
+.card--features {
     position: relative;
     height: 100%;
     padding-bottom: $spacing-m;

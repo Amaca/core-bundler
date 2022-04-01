@@ -1,5 +1,4 @@
 import { getModules} from './module.config.js';
-
 export default class ModuleLoader {
 
 	constructor(node, wrapper) {

@@ -1,0 +1,35 @@
+<sidebar id="sidebar" data-module="lateralForm">
+    <!-- Form Fixed Right -->
+    <div class="form-fixed-right active" id="form-fixed-right">
+
+        <div class="h4">Richiedi Informazioni</div>
+
+        <div id="contatto-new-2">
+
+            <!--[if lte IE 8]>
+
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+
+            <![endif]-->
+
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+                hbspt.forms.create({
+                    portalId: "5264012",
+                    formId: "aa05d5a0-6e04-4438-a31c-eb21624b5d95",
+                    css: "",
+                    cssClass: "form-hsb",
+                    submitButtonClass: "btn btn-azure"
+
+                });
+                onload = function() {
+                    if (document.getElementsByName("url_last_submission")[0]) {
+                        document.getElementsByName("url_last_submission")[0].value = document.location.href;
+                    }
+                };
+
+            </script>
+
+        </div>
+    </div>
+</sidebar>

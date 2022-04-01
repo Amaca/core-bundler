@@ -5,7 +5,7 @@ const ip = require('internal-ip')
 const portFinderSync = require('portfinder-sync')
 const webpackReaddir = require('./webpack.readdir');
 
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 const infoColor = (_message) =>
 {
@@ -23,16 +23,6 @@ module.exports = (env) => {
                 use: {
                     loader: 'simple-nunjucks-loader'
                 }
-            },
-
-            {
-                test: /\.njk$/,
-                use: [
-                    {
-                        loader: 'simple-nunjucks-loader',
-                        options: {}
-                    }
-                ]
             },
 
             // CSS
@@ -66,15 +56,8 @@ module.exports = (env) => {
         ]
     };
 
-    const htmlFiles = webpackReaddir.getHtmlFiles({
-        input: '../src/',
-        output: '',
-        data: '../src/data.json',
-        minify: false
-    });
-
     const devPluginsSettings = [
-        new MiniCSSExtractPlugin(),
+        new MiniCSSExtractPlugin()
     ];
 
     const devServerSettings = {
@@ -106,6 +89,13 @@ module.exports = (env) => {
             return middlewares
         }
     }
+
+    const htmlFiles = webpackReaddir.getHtmlFiles({
+        input: '../src/',
+        output: '',
+        data: '../src/data.json',
+        minify: false
+    });
 
     const devConfiguration = {
         stats: 'errors-only',

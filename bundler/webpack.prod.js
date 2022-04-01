@@ -52,13 +52,6 @@ module.exports = (env) => {
         ]
     }
 
-    const htmlFiles = webpackReaddir.getHtmlFiles({
-        input: '../src/',
-        output: '../',
-        data: '../src/data.json',
-        minify: false
-    });
-
     const prodPluginsSettings = [
         new CopyWebpackPlugin({
             patterns: [
@@ -71,6 +64,13 @@ module.exports = (env) => {
         new CleanWebpackPlugin()
     ]
 
+    const htmlFiles = webpackReaddir.getHtmlFiles({
+        input: '../src/',
+        output: '../',
+        data: '../src/data.json',
+        minify: false
+    });
+
     const prodConfiguration = {   
         stats: 'errors-only',
         mode: 'production',
@@ -80,3 +80,4 @@ module.exports = (env) => {
 
     return merge(commonConfiguration, prodConfiguration);
 } 
+

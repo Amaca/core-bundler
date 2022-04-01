@@ -3,12 +3,9 @@
 {% extends "src/templates/layout.html" %}
 
 {% block main %}
-    
-    <!-- critical -->
-    {% include "src/templates/sections/hero.html" %}
-    <!-- /critical -->
-
+    {# <svg><use xlink:href="#headphones"></use></svg> #}
     <!-- modules -->
+    {% include "src/app/modules/hero/hero.html" %}
     {% include "src/app/modules/highlights/highlights.html" %}
     {% include "src/app/modules/cover/cover.html" %}
     {% include "src/app/modules/accordion/accordion-filters.html" %}
@@ -20,23 +17,7 @@
     {% include "src/app/modules/cover/cover.html" %}
     {% include "src/app/modules/accordion/accordion-filters.html" %}
     {% include "src/app/modules/reviews/reviews.html" %}
-    {% include "src/app/modules/accordion/accordion.html" %}
-    {% include "src/app/modules/features/features.html" %}
-    {% include "src/app/modules/related/related.html" %}
-    {% include "src/app/modules/highlights/highlights.html" %}
-    {% include "src/app/modules/cover/cover.html" %}
-    {% include "src/app/modules/accordion/accordion-filters.html" %}
-    {% include "src/app/modules/reviews/reviews.html" %}
-    {% include "src/app/modules/accordion/accordion.html" %}
-    {% include "src/app/modules/features/features.html" %}
-    {% include "src/app/modules/related/related.html" %}
-    {% include "src/app/modules/highlights/highlights.html" %}
-    {% include "src/app/modules/cover/cover.html" %}
-    {% include "src/app/modules/accordion/accordion-filters.html" %}
-    {% include "src/app/modules/reviews/reviews.html" %}
-    {% include "src/app/modules/accordion/accordion.html" %}
-    {% include "src/app/modules/features/features.html" %}
-    {% include "src/app/modules/related/related.html" %}
+
     <!-- modules -->
 
 {% endblock %}

@@ -1,5 +1,14 @@
 
 const getModules = {
+	hero: () => import( 
+		/* webpackChunkName: "hero" */ "./hero/hero" 
+	),
+	lateralForm: () => import( 
+		/* webpackChunkName: "lateralForm" */ "./lateral-form/lateral-form" 
+	),
+	cover: () => import( 
+		/* webpackChunkName: "cover" */ "./cover/cover" 
+	),
 	features: () => import( 
 		/* webpackChunkName: "features" */ "./features/features" 
 	),
@@ -15,11 +24,17 @@ const getModules = {
 	related: () => import( 
 		/* webpackChunkName: "related" */ "./related/related" 
 	),
-	cover: () => import( 
-		/* webpackChunkName: "cover" */ "./cover/cover" 
-	),
 	reviews: () => import( 
 		/* webpackChunkName: "reviews" */ "./reviews/reviews" 
+	),
+	focus: () => import( 
+		/* webpackChunkName: "focus" */ "./focus/focus" 
+	),
+	editorial: () => import( 
+		/* webpackChunkName: "editorial" */ "./editorial/editorial" 
+	),
+	download: () => import( 
+		/* webpackChunkName: "download" */ "./download/download" 
 	)
 };
 

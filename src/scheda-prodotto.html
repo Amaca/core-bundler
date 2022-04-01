@@ -4,16 +4,8 @@
 
 {% block main %}
     <!-- main-->
-    {% include "src/app/modules/highlights/highlights.html" %}
     {% include "src/app/modules/cover/cover.html" %}
-    {% include "src/app/modules/accordion/accordion-filters.html" %}
-
-    <section id="box" style="margin-top: 100px; height: 200vh; display: flex; align-items: center; justify-content: center; font-size: 50px;">
-        SCROLL DOWN TO LOAD MORE MODULES
-    </section>
-
-    {% include "src/app/modules/accordion/accordion.html" %}
-    {% include "src/app/modules/features/features.html" %}
-    {% include "src/app/modules/related/related.html" %}
+	{% include "src/templates/sections/side-content.html" %}
+	{% include "src/app/modules/accordion/accordion-filters.html" %}
     <!-- main -->
 {% endblock %}

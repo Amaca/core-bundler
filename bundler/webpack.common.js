@@ -1,4 +1,5 @@
 const path = require('path')
+const SvgSpriteHtmlWebpackPlugin = require('svg-sprite-html-webpack');
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/app/app.js'),
@@ -21,7 +22,22 @@ module.exports = {
                 use: [
                     'babel-loader'
                 ]
-            }
+            },
+            
+             //SVG
+             {
+                test: /\.svg$/,
+                exclude: /node_modules/,
+                use: SvgSpriteHtmlWebpackPlugin.getLoader()
+              },
         ]
-    }
+    },
+    plugins: [
+        new SvgSpriteHtmlWebpackPlugin({
+            append: true,
+            includeFiles: [
+                'src/assets/svg/*.svg',
+            ],
+        })
+    ]
 }

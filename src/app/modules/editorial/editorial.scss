@@ -1,0 +1,100 @@
+@import "../../../scss/core/mixins";
+@import "../../../scss/core/variables";
+@import '../../../scss/grid/breakpoints';
+
+.editorial {
+    padding-bottom: $spacing-m;
+
+    ._heading-center {
+        
+        .box-title{
+            margin-bottom: $spacing-m;
+        }
+    }
+
+    .row {
+        justify-content: center;
+
+        &._switch {
+            .editorial-img {
+                order: 2;
+
+                @include media-down(sm) {
+                    order: 1;
+                }
+            }
+
+            .editorial-txt {
+                order: 1;
+
+                @include media-down(sm) {
+                    order: 2;
+                }
+            }
+        }
+    }
+
+    .row + .row {
+        margin-top: $spacing-xl;
+    }
+
+    .editorial-img {
+        line-height: 0;
+
+        @include media-down(xs) {
+            margin-bottom: $spacing-m;
+        }
+    }
+
+    .editorial-txt {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .box-title {
+            font-size: pxrem(34);
+            margin-bottom: $spacing-xs;
+        }
+
+        .box-text {
+            font-size: pxrem(15);
+            margin-bottom: $spacing-xs;
+        }
+
+        .btn._inline {
+            font-size: pxrem(15);
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            left: $spacing-s;
+            bottom: 0;
+            height: 4px;
+            width: calc(100% - #{$spacing-m});
+            // background-image: url(../assets/img/ui/colored-line.jpg);
+            // background-size: cover;
+
+            @include media-down(sm) {
+                width: calc(100% - #{$spacing-s});
+                left: $spacing-xs;
+                bottom: 0;
+            }
+
+            @include media-down(xs) {
+                bottom: -#{$spacing-m};
+            }
+        }
+    }
+
+    a.img {
+    
+        &:hover {
+            
+            img {
+                transform: none;
+            }
+        }
+    }
+}
