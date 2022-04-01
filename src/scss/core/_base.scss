@@ -43,7 +43,7 @@ img {
 	transition: transform .6s $smooth;
 }
 
-.page {
+.main {
     margin-top: $header-height;
 
     @include media-down(sm) {

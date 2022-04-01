@@ -9,36 +9,21 @@ export default class ModuleLoader {
 		
 		this.name = node.getAttribute('data-module');
 		this.options = node.getAttribute('data-module-options');
-		
 		this.loaded = false;
-		this.numSteps = 20;
 
 		this.createObserver();
 	}
 
 	createObserver() {
 		this.observer;
-	
 		let options = {
 			root: null,
-			rootMargin: '0px',
-			threshold:  this.buildThresholdList()
+			rootMargin: window.innerHeight + 'px',
+			threshold:  0
 		};
 	
 		this.observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
 		this.observer.observe(this.node);
-	}
-
-	buildThresholdList() {
-		let thresholds = [];
-	
-		for (let i = 1.0; i <= this.numSteps; i++) {
-			let ratio = i / this.numSteps;
-			thresholds.push(ratio);
-		}
-	
-		thresholds.push(0);
-		return thresholds;
 	}
 	
 	handleIntersect(entries, observer) {

@@ -7,14 +7,14 @@ export default class Page {
 
 	init() {
 		const body = document.querySelector('body');
-		const page = document.querySelector('.page');
+		const main = document.querySelector('.main');
 		const header = document.querySelector('.header');
 		const nav = document.querySelector('[data-nav]');
 
 		Dom.detect(body);
 
 		this.body = body;
-		this.page = page;
+		this.main = main;
 		this.header = header;
 		this.isMobile = Dom.mobile;
 		if(nav)

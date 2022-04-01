@@ -12,19 +12,15 @@ module.exports = (env) => {
     
     const prodModulesettings = {
         rules:
-        [
+            [
             // HTML
             {
                 test: /\.html$/,
                 use: {
-                    loader: "html-loader",
-                    options: {
-                        minimize: false,
-                        sources: false
-                    }
+                    loader: 'simple-nunjucks-loader'
                 }
             },
-
+            
             // CSS
             {
                 test: /\.css$/,
@@ -59,6 +55,7 @@ module.exports = (env) => {
     const htmlFiles = webpackReaddir.getHtmlFiles({
         input: '../src/',
         output: '../',
+        data: '../src/data.json',
         minify: false
     });
 

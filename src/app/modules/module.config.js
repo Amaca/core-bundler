@@ -3,9 +3,6 @@ const getModules = {
 	features: () => import( 
 		/* webpackChunkName: "features" */ "./features/features" 
 	),
-	usersAPI: () => import( 
-		/* webpackChunkName: "usersAPI" */ "./usersAPI/usersAPI" 
-	),
 	accordion: () => import( 
 		/* webpackChunkName: "accordion" */ "./accordion/accordion" 
 	),

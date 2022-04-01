@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+{% set page_title = "Scheda prodotto" %}
+{% set body_class = "product-page" %}
+{% extends "src/templates/layout.html" %}
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Homepage</title>
-	<meta name="Content-Language" content="en" />
-	<meta name="robots" content="noindex,nofollow" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="apple-mobile-web-app-title" content="Teamsystem HR">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="mobile-web-app-capable" content="yes">
-</head>
+{% block main %}
+    <!-- main-->
+    {% include "src/app/modules/highlights/highlights.html" %}
+    {% include "src/app/modules/cover/cover.html" %}
+    {% include "src/app/modules/accordion/accordion-filters.html" %}
 
-<body class="homepage">
-	<div class="wrapper">
-       TEST
-	</div>
-</body>
-</html>
+    <section id="box" style="margin-top: 100px; height: 200vh; display: flex; align-items: center; justify-content: center; font-size: 50px;">
+        SCROLL DOWN TO LOAD MORE MODULES
+    </section>
 
+    {% include "src/app/modules/accordion/accordion.html" %}
+    {% include "src/app/modules/features/features.html" %}
+    {% include "src/app/modules/related/related.html" %}
+    <!-- main -->
+{% endblock %}

@@ -1,7 +1,6 @@
 import Module from '../module.js';
-import SwiperSlider from '../../shared/swiper/swiper-slider.js';
+import SwiperSlider from '../../swiper/swiper-slider.js';
 
-import 'swiper/css';
 import './reviews.scss';
 
 export class ReviewsModule extends Module {

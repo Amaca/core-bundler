@@ -21,12 +21,18 @@ module.exports = (env) => {
             {
                 test: /\.html$/,
                 use: {
-                    loader: "html-loader",
-                    options: {
-                        minimize: false,
-                        sources: false
-                    }
+                    loader: 'simple-nunjucks-loader'
                 }
+            },
+
+            {
+                test: /\.njk$/,
+                use: [
+                    {
+                        loader: 'simple-nunjucks-loader',
+                        options: {}
+                    }
+                ]
             },
 
             // CSS
@@ -63,6 +69,7 @@ module.exports = (env) => {
     const htmlFiles = webpackReaddir.getHtmlFiles({
         input: '../src/',
         output: '',
+        data: '../src/data.json',
         minify: false
     });
 
@@ -105,7 +112,12 @@ module.exports = (env) => {
         mode: 'development',
         module: devModuleSettings,
         plugins: htmlFiles.concat(devPluginsSettings),
-        devServer: devServerSettings
+        devServer: devServerSettings,
+        resolve: {
+            fallback: {
+                "fs": false
+            },
+        }
     };
 
     return merge(commonConfiguration, devConfiguration);
