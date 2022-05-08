@@ -94,21 +94,6 @@
                 line-height: pxrem(18);
             }
 
-            &:before {
-                content: url(../assets/img/ui/icon-quote-1.png);
-                display: inline-block;
-                position: absolute;
-                left: -20px;
-                top: 10px;
-            }
-
-            &:after {
-                content: url(../assets/img/ui/icon-quote-2.png);
-                display: inline-block;
-                position: absolute;
-                right: -10px;
-                bottom: -10px;
-            }
         }
     }
 }

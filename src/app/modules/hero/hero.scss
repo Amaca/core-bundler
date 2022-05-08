@@ -111,7 +111,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background: #94a5c3;
+            background: #cccccc;
             z-index: 1;
         }
     }
@@ -121,7 +121,7 @@
         color: $black;
 
         &::before {
-            background-color: #144391;
+            background-color: #3c026b;
             animation: slide-progress 5s cubic-bezier(.3, 0, .3, 1) forwards;
 
             .swiper-paused & {

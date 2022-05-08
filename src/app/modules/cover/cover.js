@@ -8,7 +8,7 @@ export class CoverModule extends Module {
 	}
 
 	init() {
-		this.loaded();
+		this.ready();
 	}
 }
 

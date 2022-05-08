@@ -1,5 +1,4 @@
 import Dom from './dom';
-import Nav from '../nav/nav'
 
 export default class Page {
 
@@ -17,8 +16,6 @@ export default class Page {
 		this.main = main;
 		this.header = header;
 		this.isMobile = Dom.mobile;
-		if(nav)
-			this.nav = new Nav(nav);
 
 		this.addListeners();
 	}

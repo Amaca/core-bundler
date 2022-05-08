@@ -163,10 +163,10 @@ Accept Cookie
 }
 
 .section {
-	margin-bottom: $spacing-l;
+	margin: $spacing-l 0;
 	
 	@include media-down(sm) {
-        margin-bottom: $spacing-m;
+        margin: $spacing-s 0;
     }
 
 	&.hero,
@@ -185,8 +185,7 @@ Accept Cookie
             top: 0;
             height: 4px;
             width: 100%;
-            // background-image: url(../assets/img/ui/colored-line.jpg);
-            // background-size: cover;
+           
         }
 	}
 

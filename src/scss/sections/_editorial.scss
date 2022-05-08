@@ -72,9 +72,7 @@
             bottom: 0;
             height: 4px;
             width: calc(100% - #{$spacing-m});
-            // background-image: url(../assets/img/ui/colored-line.jpg);
-            // background-size: cover;
-
+           
             @include media-down(sm) {
                 width: calc(100% - #{$spacing-s});
                 left: $spacing-xs;

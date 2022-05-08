@@ -1,5 +1,6 @@
 import { getModules} from './module.config.js';
-export default class ModuleLoader {
+import Logs from '../shared/logs';
+export default class ModuleLoader  {
 
 	constructor(node, wrapper) {
 		this.node = node;
@@ -8,7 +9,7 @@ export default class ModuleLoader {
 		
 		this.name = node.getAttribute('data-module');
 		this.options = node.getAttribute('data-module-options');
-		this.loaded = false;
+		this.intersected = false;
 
 		this.createObserver();
 	}
@@ -27,17 +28,31 @@ export default class ModuleLoader {
 	
 	handleIntersect(entries, observer) {
 		entries.forEach((entry) => {
-			if (entry.isIntersecting && !this.loaded) {
-				this.loadModule()
-				this.loaded = true;
+			if (entry.isIntersecting && !this.intersected) {
+				this.intersected = true;
+				this.loadModule();
 			} 
 		});
 	}
 
 	loadModule() {
-		getModules[this.name]().then(({createInstance}) => {
-			this.instance = createInstance();
-			this.instance.bind(this.node, this.name, this.options)
+		// return a promise when module is loaded
+		return new Promise((resolve, reject) => {
+			const startTime = Date.now();
+
+			//load module, create a new module instance and bind it
+			getModules[this.name]().then(({createInstance}) => {
+				this.instance = createInstance();
+				this.instance.bind(this.node, this.name, this.options);
+
+				//show styled node on module ready and calculate elapsed time
+				this.instance.on('ready', (endingTime) => {
+					Logs.debug(`Module ${this.name} loaded in ${endingTime - startTime}ms`);
+					this.instance.node.classList.add('_loaded');
+					this.instance.off('ready');
+					resolve(this.instance)
+				})
+			});
 		});
 	}
 }

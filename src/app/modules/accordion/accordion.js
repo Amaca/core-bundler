@@ -63,7 +63,7 @@ export default class AccordionModule extends Module {
 		this.contents = Array.from(this.node.querySelectorAll(`[${this.selectors.contentAttribute}]`));
 		
 		this.addListeners();
-		this.loaded();
+		this.ready();
 	}
 
 	addListeners() {

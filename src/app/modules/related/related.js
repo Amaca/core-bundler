@@ -8,7 +8,7 @@ export class RelatedModule extends Module {
 	}
 
 	init() {
-		this.loaded();
+		this.ready();
 	}
 }
 

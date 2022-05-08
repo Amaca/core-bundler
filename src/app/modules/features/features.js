@@ -8,7 +8,7 @@ export class FeaturesModule extends Module {
 	}
 
 	init() {
-		this.loaded();
+		this.ready();
 	}
 }
 

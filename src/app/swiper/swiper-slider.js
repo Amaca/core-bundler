@@ -1,6 +1,6 @@
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import SwiperSettings from './swiper-settings';
-
+import 'swiper/css';
 export default class SwiperSlider {
 
 	constructor(node) {

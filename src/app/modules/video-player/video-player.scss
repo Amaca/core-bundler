@@ -1,0 +1,11 @@
+@import "../../../scss/core/mixins";
+@import "../../../scss/core/variables";
+@import '../../../scss/grid/breakpoints';
+
+.video-player {
+    text-align: center;
+
+    iframe{
+        max-width: 100%;
+    }
+}

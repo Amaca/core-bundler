@@ -1,7 +1,11 @@
+import EventEmitter from '../shared/EventEmitter.js';
+export default class Module extends EventEmitter {
 
-export default class Module {
+	constructor(el) {
+		super(el);
+	}
 
-	bind(node, name, options) {
+	bind(node, name, options, time) {
 		this.node = node;
 		this.name = name;
 		this.options = options !== null ? options : {selectors: '', settings: ''};
@@ -14,8 +18,8 @@ export default class Module {
 
 	init() {}
 
-	loaded() {
-		console.log(`Module ${this.name} loaded`);
-		this.node.classList.add('_loaded');
+	ready() {
+		const endingTime = Date.now();
+		setTimeout(() => this.trigger('ready', [endingTime]), 0.000001);
 	}
 }

@@ -1,5 +1,6 @@
 import Module from '../module.js';
 import './hero.scss';
+import SwiperSlider from '../../swiper/swiper-slider';
 
 export class HeroModule extends Module {
 
@@ -8,7 +9,8 @@ export class HeroModule extends Module {
 	}
 
 	init() {
-		this.loaded();
+		SwiperSlider.init();
+		this.ready();
 	}
 }
 

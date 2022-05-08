@@ -1,39 +1,19 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+{% set page_title = "Homepage" %}
+{% set body_class = "homepage" %}
+{% extends "src/templates/layout.html" %}
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Homepage</title>
-	<meta name="Content-Language" content="en" />
-	<meta name="robots" content="noindex,nofollow" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="apple-mobile-web-app-title" content="Teamsystem HR">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="mobile-web-app-capable" content="yes">
-</head>
+{% block main %}
+    <!-- modules -->
+    {% include "src/app/modules/hero/hero.html" %}
+    {% include "src/app/modules/reviews/reviews.html" %} 
+    {% include "src/app/modules/accordion/accordion-filters.html" %}
+    {% include "src/app/modules/cover/cover.html" %}
+    {% include "src/app/modules/features/features.html" %}
+    {% include "src/app/modules/video-player/video-player.html" %}
+    {% include "src/app/modules/accordion/accordion.html" %}
+    {% include "src/app/modules/related/related.html" %}
+    {% include "src/app/modules/cover/cover.html" %}
+    {% include "src/app/modules/reviews/reviews.html" %}
+    <!-- modules -->
 
-<body class="homepage">
-	<div class="wrapper">
-		<main class="page" style="padding-top: 200px">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12" style="text-align: center;">
-						<div class="logo" style="margin-bottom: 20px">
-							WEBSITE NAME
-						</div>
-					   <h5 style="margin-bottom: 10px">TEMPLATES</h5>
-                       <ul>
-							<li><a href="./homepage.html">Homepage</a></li>
-							<li><a href="./scheda-prodotto.html">Scheda prodotto</a></li>
-                       </ul>
-                    </div>
-                </div>
-            </div>
-        </main>
-	</div>
-</body>
-</html>
-
+{% endblock %}

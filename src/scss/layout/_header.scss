@@ -54,30 +54,7 @@
         }
     }
 
-    &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -7px;
-        height: 7px;
-        width: 100%;
-        background-image: url(../assets/img/ui/colored-line.jpg);
-        background-position: left;
-        background-size: contain;
-        background-repeat: repeat-x;
-
-        @include media-down(md) {
-            bottom: 0 !important;
-        }
-
-        @include media-down(sm) {
-            bottom: -4px  !important;
-        }
-        
-        @include media-between(sm, md) {
-            bottom: -7px  !important;
-        }
-    }
+    
 }
 
 .header-main {

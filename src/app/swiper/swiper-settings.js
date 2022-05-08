@@ -17,6 +17,7 @@ export default class SwiperSettings {
 					return text;
 				}
 			},
+			autoHeight: true,
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev'

@@ -12,7 +12,7 @@ export class ReviewsModule extends Module {
 	init() {
 		const sliderWrapper = this.node.querySelector('[data-swiper-slider]');
 		this.swiperInstance = new SwiperSlider(sliderWrapper);
-		this.loaded();
+		this.ready();
 	}
 }
 
