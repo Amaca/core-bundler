@@ -5,7 +5,7 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/app/app.js'),
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, '../dist/js'),
+        path: path.resolve(__dirname, '../docs/js'),
     },
     devtool: 'source-map',
     optimization: {
