@@ -1,38 +1,22 @@
 import { getModules} from './module.config.js';
 import Logs from '../shared/logs';
-export default class ModuleLoader  {
+import Intersection from '../shared/intersection.js';
+export default class ModuleLoader extends Intersection {
 
 	constructor(node, wrapper) {
+		super(node);
 		this.node = node;
 		this.wrapper = wrapper;
-		this.module = module;
-		
 		this.name = node.getAttribute('data-module');
 		this.options = node.getAttribute('data-module-options');
-		this.intersected = false;
 
 		this.createObserver();
 	}
 
-	createObserver() {
-		this.observer;
-		let options = {
-			root: null,
-			rootMargin: window.innerHeight + 'px',
-			threshold:  0
-		};
-	
-		this.observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
-		this.observer.observe(this.node);
-	}
-	
-	handleIntersect(entries, observer) {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting && !this.intersected) {
-				this.intersected = true;
-				this.loadModule();
-			} 
-		});
+	onIntersect() {
+		this.loadModule().catch(error => {
+			console.error(`Module "${this.name}" has not been loaded correctly. Check the attribute data-module on html or paths on module.config.js - ${error}`)
+		});;
 	}
 
 	loadModule() {
