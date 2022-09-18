@@ -9,7 +9,7 @@ export default class ModuleLoader extends Intersection {
 		this.wrapper = wrapper;
 		this.name = node.getAttribute('data-module');
 		this.options = node.getAttribute('data-module-options');
-
+		this.console = document.querySelector('[data-console]');
 		this.createObserver();
 	}
 
@@ -32,6 +32,10 @@ export default class ModuleLoader extends Intersection {
 				//show styled node on module ready and calculate elapsed time
 				this.instance.on('ready', (endingTime) => {
 					Logs.debug(`Module ${this.name} loaded in ${endingTime - startTime}ms`);
+					this.console.innerHTML += `
+						<p><strong>${this.name}.js</strong> and <strong>${this.name}.css</strong> loaded in ${endingTime - startTime}ms</p>
+					`;
+					this.console.scrollTop = this.console.scrollHeight;
 					this.instance.node.classList.add('_loaded');
 					this.instance.off('ready');
 					resolve(this.instance)
