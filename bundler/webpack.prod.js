@@ -4,11 +4,10 @@ const commonConfiguration = require('./webpack.common.js')
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const webpackReaddir = require('./webpack.readdir');
 
-module.exports = (env) => {
+module.exports = (en, argv) => {
     
     const prodModulesettings = {
         rules:
@@ -60,9 +59,14 @@ module.exports = (env) => {
         }),
         new MiniCSSExtractPlugin({
             filename: '../css/[name].css',
-        }),
-        new CleanWebpackPlugin()
+        })
     ]
+
+    const prodStatsSettings = 'normal';
+    const devStatsSettings = {
+        logging: 'error',
+        builtAt: true,
+    }
 
     const htmlFiles = webpackReaddir.getHtmlFiles({
         input: '../src/',
@@ -72,8 +76,8 @@ module.exports = (env) => {
     });
 
     const prodConfiguration = {   
-        stats: 'errors-only',
-        mode: 'production',
+        stats: argv.mode === 'development' ? devStatsSettings : prodStatsSettings,
+        mode: argv.mode,
         module: prodModulesettings,
         plugins: htmlFiles.concat(prodPluginsSettings)
     }

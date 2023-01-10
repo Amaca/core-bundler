@@ -63,21 +63,3 @@
 		}
 	}
 }
-
-@mixin tablet-portrait {
-    @media screen and (orientation: portrait) and (max-device-width: 1024px) {
-        @content;
-    }
-}
-
-@mixin tablet-landscape {
-    @media screen and (orientation: landscape) and (max-device-width: 1024px) {
-        @content;
-    }
-}
-
-@mixin phone-landscape {
-    @media screen and (orientation: landscape) and (max-device-width: 820px) {
-        @content;
-    }
-}

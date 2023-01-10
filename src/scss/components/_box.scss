@@ -60,10 +60,6 @@
             @include media-down(xs) {
                 margin-left: 0;
             }
-
-            @include phone-landscape {
-                margin-left: $spacing-s;
-            }
         }
     }
 
